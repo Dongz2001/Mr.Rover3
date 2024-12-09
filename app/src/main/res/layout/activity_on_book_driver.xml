@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OnBookDriver">
+
+    <!-- Map Fragment -->
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_alignParentTop="true"
+        class="com.google.android.gms.maps.SupportMapFragment" />
+
+    <!-- Bottom Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:padding="20dp">
+
+        <!-- In Progress Section -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/inProgressIcon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/inprogress"
+                android:contentDescription="In Progress Icon"
+                android:layout_alignParentStart="true"
+                />
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/inProgressIcon"
+                android:gravity="center"
+                android:text="IN PROGRESS"
+                android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:background="@drawable/button_color"
+                android:padding="4dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- From Location -->
+        <EditText
+            android:id="@+id/fromEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:hint="From"
+            android:padding="12dp"
+            android:background="@drawable/bookinglocation"
+            android:drawableLeft="@drawable/from_location"
+            android:drawablePadding="10dp"
+            android:inputType="text" />
+
+        <!-- To Location -->
+        <EditText
+            android:id="@+id/toEditText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:hint="To"
+            android:padding="12dp"
+            android:background="@drawable/bookinglocation"
+            android:drawableLeft="@drawable/to_location"
+            android:drawablePadding="10dp"
+            android:inputType="text" />
+
+        <!-- Track Ride Button -->
+        <Button
+            android:id="@+id/trackRideButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="START BOOKING"
+            android:background="@drawable/button_color"
+            android:textColor="@android:color/white"
+            android:padding="12dp"
+            android:textAllCaps="true" />
+
+        <Button
+            android:id="@+id/trackRideButton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="END BOOKING"
+            android:background="@drawable/buttoncolor2"
+            android:textColor="@android:color/white"
+            android:padding="12dp"
+            android:textAllCaps="true" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Stroke defines the line or border around the shape -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/light_gray"/>  <!-- Color and width of the line (stroke) -->
+
+    <!-- Rounded corners -->
+    <corners android:radius="5dp"/>
+
+    <!-- Background color of the shape -->
+    <solid android:color="@color/white"/>  <!-- Change this color as needed -->
+
+</shape>

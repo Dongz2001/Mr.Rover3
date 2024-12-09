@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="380dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pick your service, KaLovers!"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:layout_marginTop="25dp"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/maintext"/>
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Short-Term Service"
+            android:background="@drawable/button_color"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/maintext"
+            android:id="@+id/shortterm"/>
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Long-Term Service"
+            android:background="@drawable/button_color1"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="50dp"
+            android:layout_below="@+id/shortterm"
+            android:id="@+id/longterm"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

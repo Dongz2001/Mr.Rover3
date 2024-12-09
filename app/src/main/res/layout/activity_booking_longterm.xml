@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:gravity="center"
+    android:background="@color/white"
+    tools:context=".Booking_Longterm">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type of Service"
+        android:textSize="20dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"
+        android:id="@+id/typeofservice"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/typeofservice"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="10dp">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Drop Off"/>
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Round Trip"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/choose1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select date"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:layout_below="@+id/radioGroup"/>
+
+    <TextView
+        android:id="@+id/choose2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroup"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="10dp"
+        android:text="Select Time"
+        android:textColor="@color/black"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/date"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/booking_page"
+        android:onClick="openDatePicker"
+        android:text="Start Date"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:drawableLeft="@drawable/calendar"
+        android:paddingLeft="10dp"
+        android:layout_below="@+id/choose1"/>
+
+    <Button
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:text="00:00"
+        android:background="@drawable/booking_page"
+        android:textColor="@color/black"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="210dp"
+        android:onClick="popTimePicker"
+        android:drawableLeft="@drawable/time"
+        android:id="@+id/time_btn"
+        android:paddingLeft="15dp"
+        android:layout_below="@+id/choose2"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vehicle"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/black"
+        android:layout_below="@+id/date"
+        android:id="@+id/vehicletype"
+        android:textSize="20dp"/>
+
+
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background_selector"
+        android:id="@+id/button1"
+        android:layout_below="@+id/vehicletype"
+        />
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="95dp"
+        android:background="@drawable/kind1"
+        android:id="@+id/button2"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/vehicletype"
+        />
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="195dp"
+        android:background="@drawable/kind2"
+        android:id="@+id/button3"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/vehicletype"
+        />
+
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="290dp"
+        android:background="@drawable/kind3"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/vehicletype"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Model"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:letterSpacing="0.08"
+        android:textSize="20dp"
+        android:layout_below="@+id/button1"
+        android:id="@+id/model1"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:inputType="text"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bookinglocation"
+        android:id="@+id/model"
+        android:layout_below="@+id/model1"
+        android:padding="10dp"/>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm"
+        android:background="@drawable/button_color"
+        android:textColor="@color/white"
+        android:layout_marginTop="70dp"
+        android:id="@+id/location123"
+        android:layout_below="@+id/model"/>
+
+</RelativeLayout>

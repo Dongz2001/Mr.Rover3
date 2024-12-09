@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MR_Register_Driver">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        />
+    <EditText
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textfield"
+        android:inputType="textPersonName"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp"
+        android:id="@+id/firstname"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last Name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="10dp"
+        />
+    <EditText
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textfield"
+        android:inputType="textPersonName"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp"
+        android:id="@+id/lastname"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="260dp"
+        android:layout_marginLeft="10dp"
+        />
+    <EditText
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textfield"
+        android:inputType="text"
+        android:layout_marginTop="280dp"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp"
+        android:id="@+id/address"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Birth Date"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="10dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gender"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="180dp"
+        />
+    <Button
+        android:id="@+id/date"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="210dp"
+        android:background="@drawable/textfield"
+        android:onClick="openDatePicker"
+        android:text="mm/dd/yy"
+        android:textColor="@color/black"
+        android:drawableLeft="@drawable/calendar"
+        android:paddingLeft="15dp" />
+
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_background_selector"
+        android:id="@+id/button1"
+        android:layout_below="@+id/address"
+        />
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="95dp"
+        android:background="@drawable/kind1"
+        android:id="@+id/button2"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/address"
+        />
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="195dp"
+        android:background="@drawable/kind2"
+        android:id="@+id/button3"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/address"
+        />
+
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="290dp"
+        android:background="@drawable/kind3"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/address"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="10dp"
+        />
+    <EditText
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textfield"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="420dp"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp"
+        android:id="@+id/driver_email1"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="470dp"
+        android:layout_marginLeft="10dp"
+        />
+    <EditText
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/textfield"
+        android:inputType="textPassword"
+        android:layout_marginTop="490dp"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp"
+        android:id="@+id/password1"
+        />
+    <Button
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:background="@drawable/button_color"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:id="@+id/registerBTN1"
+        android:layout_marginTop="680dp"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account?"
+        android:textColor="@color/black"
+        android:layout_marginTop="740dp"
+        android:layout_marginLeft="50dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login here"
+        android:textColor="@color/blue"
+        android:layout_marginTop="740dp"
+        android:layout_marginLeft="220dp"
+        android:id="@+id/login_here"
+        android:layout_marginBottom="50dp"
+        />
+
+    <Spinner
+        android:id="@+id/gender"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft="180dp"
+        android:background="@drawable/textfield"
+        android:padding="8dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drivers License"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="540dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="560dp"
+        android:layout_marginLeft="10dp">
+
+        <!-- ImageView -->
+        <ImageView
+            android:id="@+id/drivers_licenseFront"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/textfield"
+            android:scaleType="centerInside" /> <!-- Add your upload icon here -->
+
+        <!-- TextView to overlay the text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Upload Front Side"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:drawableLeft="@drawable/upload_file"
+            android:padding="10dp"/>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="560dp"
+        android:layout_marginLeft="180dp">
+
+        <!-- ImageView -->
+        <ImageView
+            android:id="@+id/drivers_licenseBack"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/textfield"
+            android:scaleType="centerInside" /> <!-- Add your upload icon here -->
+
+        <!-- TextView to overlay the text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Upload Back Side"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:drawableLeft="@drawable/upload_file"
+            android:padding="10dp"/>
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="One valid ID"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="610dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="630dp"
+        android:layout_marginLeft="10dp">
+
+        <!-- ImageView -->
+        <ImageView
+            android:id="@+id/valid_ID_driver"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/textfield"
+            android:scaleType="centerInside" /> <!-- Add your upload icon here -->
+
+        <!-- TextView to overlay the text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Upload Image"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:drawableLeft="@drawable/upload_file"
+            android:padding="10dp"/>
+    </FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Birth Certificate"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="610dp"
+        android:layout_marginLeft="180dp"
+        />
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="630dp"
+        android:layout_marginLeft="180dp">
+
+        <!-- ImageView -->
+        <ImageView
+            android:id="@+id/birth_Certh"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@drawable/textfield"
+            android:scaleType="centerInside" /> <!-- Add your upload icon here -->
+
+        <!-- TextView to overlay the text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Upload Image"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:drawableLeft="@drawable/upload_file"
+            android:padding="10dp"/>
+    </FrameLayout>
+</RelativeLayout>

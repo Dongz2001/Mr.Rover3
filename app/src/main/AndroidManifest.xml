@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MrRover"
+        tools:targetApi="31" >
+        <activity
+            android:name=".map"
+            android:exported="false" />
+        <activity
+            android:name=".Driver_Pending"
+            android:exported="false" />
+        <activity
+            android:name=".Mr_userHistory"
+            android:exported="false" />
+        <activity
+            android:name=".Logout"
+            android:exported="false" />
+        <activity
+            android:name=".Mr_driver_History"
+            android:exported="false" />
+        <activity
+            android:name=".Mr_user_History"
+            android:exported="false" />
+        <activity
+            android:name=".OnBookDriver"
+            android:exported="false" />
+        <activity
+            android:name=".userDownpayment"
+            android:exported="false" />
+        <activity
+            android:name=".OnBookingRate_Owner"
+            android:exported="false" />
+        <activity
+            android:name=".OnBooking_Owner"
+            android:exported="false" />
+        <activity
+            android:name=".Payment"
+            android:exported="false" />
+        <activity
+            android:name=".Payment_Method"
+            android:exported="false" />
+        <activity
+            android:name=".AfterBooking"
+            android:exported="false" />
+        <activity
+            android:name=".MR_Reservation"
+            android:exported="false" />
+        <activity
+            android:name=".List_of_Drivers"
+            android:exported="false" />
+        <activity
+            android:name=".home_Driver"
+            android:exported="false" />
+        <activity
+            android:name=".MR_Login_Driver"
+            android:exported="false" />
+        <activity
+            android:name=".MR_Register_Driver"
+            android:exported="false" />
+        <activity
+            android:name=".Booking_Longterm"
+            android:exported="false" />
+        <activity
+            android:name=".MR_Register"
+            android:exported="false" />
+        <activity
+            android:name=".MR_Login"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Registration"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterAs"
+            android:exported="false" />
+        <activity
+            android:name=".newLogin"
+            android:exported="false" />
+        <activity
+            android:name=".search_user"
+            android:exported="false" />
+        <activity
+            android:name=".setLocation"
+            android:exported="false" />
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAxl9Yaq7APhTlR-UJ4qIN2ZRYTLwuyj1c" />
+
+        <activity
+            android:name=".Booking"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginUser"
+            android:exported="false" />
+        <activity
+            android:name=".LoginOtpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginPhoneNumberActivity"
+            android:exported="false" />
+
+        <service android:name=".FCMNotificationService" android:exported="false">
+
+            <intent-filter>
+
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+
+        </service>
+
+    </application>
+
+</manifest>

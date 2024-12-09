@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    tools:context=".OnBookingRate_Owner">
+
+    <!-- Complete Status -->
+    <TextView
+        android:id="@+id/status_icon"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:text="COMPLETE"
+        android:background="@drawable/button_color1"
+        android:textColor="@android:color/white"
+        android:padding="4dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="80dp"/>
+
+    <!-- Car and Location Icon -->
+    <ImageView
+        android:id="@+id/car_icon"
+        android:layout_width="220dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ratepic"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/status_icon"
+        android:layout_marginTop="50dp"/>
+
+    <!-- Feedback Section -->
+    <TextView
+        android:id="@+id/feedback_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your feedback"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:layout_below="@id/car_icon"
+        android:paddingStart="30dp"
+        android:layout_marginTop="70dp"/>
+
+    <!-- Profile Section -->
+    <LinearLayout
+        android:id="@+id/profile_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/feedback_label"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical">
+
+        <!-- Profile Image -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/logo"
+            android:padding="1dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/circular"
+            app:strokeColor="#BAD6EB"
+            android:layout_marginLeft="20dp"
+            app:strokeWidth="1dp"
+            tools:src="@drawable/logo" />
+
+        <!-- Profile Info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Juan Masipag"
+                android:textColor="@color/blue"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintStart_toEndOf="@id/profile_image"
+                />
+
+            <RatingBar
+                android:id="@+id/ratingBar1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:numStars="5"
+                android:rating="0"
+                android:progressTint="@color/yellow"
+                android:progressBackgroundTint="@color/light_gray" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Comment Box -->
+    <EditText
+        android:id="@+id/comment_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_info"
+        android:hint="Comment..."
+        android:background="@drawable/bookinglocation"
+        android:padding="12dp"
+        android:layout_marginTop="40dp"/>
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_color"
+        android:text="Submit"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/comment_box"
+        android:layout_marginTop="30dp"/>
+
+
+</RelativeLayout>

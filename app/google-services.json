@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "382277756137",
+    "project_id": "mr-rover",
+    "storage_bucket": "mr-rover.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:382277756137:android:8edb132e4080a903c1bc78",
+        "android_client_info": {
+          "package_name": "com.example.mrrover"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABRw-38ottv3uDSrjVc9f71t7km-uDFSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

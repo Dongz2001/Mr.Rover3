@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/newLogin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".RegisterAs">
+
+
+    <LinearLayout
+        android:id="@+id/image_container"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:background="@color/my_secondary"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            app:srcCompat="@drawable/logo" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register As"
+        android:letterSpacing="0.08"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/image_container"
+        android:id="@+id/textView"/>
+
+    <Button
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Vehicle Owner"
+        android:textAllCaps="false"
+        android:background="@drawable/button_color"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:id="@+id/vehicle_owner"
+        android:layout_marginTop="45dp"
+        android:layout_below="@id/textView" />
+    <Button
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Driver"
+        android:textAllCaps="false"
+        android:background="@drawable/button_color"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        android:id="@+id/driver"
+        android:layout_marginTop="35dp"
+        android:layout_below="@id/vehicle_owner" />
+
+
+</RelativeLayout>

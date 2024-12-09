@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- Top Section -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Down Payment"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp"
+        android:layout_marginTop="40dp"
+        android:textColor="#000000" />
+
+    <ImageView
+        android:id="@+id/payment_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/baseline_wallet_24"
+        android:layout_gravity="center"
+        android:contentDescription="Payment Icon" />
+
+    <TextView
+        android:id="@+id/payment_method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Driver's Gcash"
+        android:textSize="16sp"
+        android:layout_gravity="center"
+        android:paddingTop="8dp"
+        android:textColor="#000000" />
+
+    <!-- Driver Information Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driver Name:"
+            android:textSize="14sp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/driver_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="John Doe"
+            android:textSize="16sp"
+            android:background="@android:color/transparent"
+            android:enabled="false" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number:"
+            android:textSize="14sp"
+            android:paddingTop="8dp"
+            android:textColor="#000000" />
+
+        <EditText
+            android:id="@+id/driver_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="09687065841"
+            android:textSize="16sp"
+            android:background="@android:color/transparent"
+            android:enabled="false" />
+    </LinearLayout>
+
+    <!-- Payment Sent Button -->
+    <Button
+        android:id="@+id/payment_sent_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Payment Sent"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#00C853"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:layout_marginTop="24dp" />
+
+    <!-- Confirmation Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="24dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Down Payment sent"
+            android:textSize="18sp"
+            android:paddingBottom="8dp"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click confirm if you received"
+            android:textSize="14sp"
+            android:textColor="#666666" />
+
+        <Button
+            android:id="@+id/confirm_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#00C853"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

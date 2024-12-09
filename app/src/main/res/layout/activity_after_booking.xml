@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    tools:context=".AfterBooking">
+
+    <!-- Pending Confirmation Text at the Top -->
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pending Confirmation"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:fontFamily="sans-serif-medium" />
+
+    <!-- Icon in the Center -->
+    <ImageView
+        android:id="@+id/icon_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@id/title_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/rubber"
+        android:contentDescription="Confirmation Icon"/>
+
+    <!-- Confirmation Status Text Below Icon -->
+    <TextView
+        android:id="@+id/status_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/icon_image"
+        android:layout_centerHorizontal="true"
+        android:text="Pending Confirmation"
+        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium" />
+
+    <!-- Instruction Text Below Status -->
+    <TextView
+        android:id="@+id/instruction_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/status_text"
+        android:layout_centerHorizontal="true"
+        android:text="Your request has been sent to your selected driver. Please wait for confirmation."
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:fontFamily="sans-serif" />
+
+    <!-- Cancel Booking Button at the Bottom -->
+    <Button
+        android:id="@+id/buttons"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="Back to Home"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#001A57"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:layout_below="@id/instruction_text"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="sans-serif-medium" />
+
+</RelativeLayout>

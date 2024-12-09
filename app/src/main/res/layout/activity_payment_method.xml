@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <!-- Header for Payment Method -->
+
+    <Space
+        android:layout_width="16dp"
+        android:layout_height="16dp" />
+    <TextView
+        android:id="@+id/payment_methods_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#2196F3"
+        android:padding="16dp"
+        android:text="Payment Methods"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:gravity="center" />
+
+
+
+    <!-- Gcash Logo and Label -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_horizontal">
+
+        <ImageView
+            android:id="@+id/gcash_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/gcash" />
+
+        <TextView
+            android:id="@+id/gcash_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Gcash"
+            android:textSize="18sp"
+            android:textColor="#000000" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/gcash_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Gcash Name"
+        android:inputType="textPersonName"
+        android:backgroundTint="#4CAF50"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Gcash Number Field -->
+    <EditText
+        android:id="@+id/gcash_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Gcash Number"
+        android:inputType="phone"
+        android:backgroundTint="#4CAF50"
+        android:padding="12dp"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Gcash Name Field -->
+
+
+    <!-- Confirm Payment Button -->
+    <Button
+        android:id="@+id/confirm_payment_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#4CAF50"
+        android:text="CONFIRM PAYMENT"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:padding="12dp" />
+
+    <Button
+        android:id="@+id/back111"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#57b3fc"
+        android:layout_gravity="center"
+        android:text="Back"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:padding="12dp" />
+
+
+
+
+</LinearLayout>

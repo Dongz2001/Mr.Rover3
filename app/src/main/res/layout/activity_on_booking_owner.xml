@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".OnBooking_Owner">
+
+
+  <!-- Status Icon -->
+  <TextView
+      android:id="@+id/status_icon"
+      android:layout_width="120dp"
+      android:layout_height="30dp"
+      android:gravity="center"
+      android:text="IN PROGRESS"
+      android:background="@drawable/button_color1"
+      android:backgroundTint="#081F5C"
+      android:textColor="@android:color/white"
+      android:padding="4dp"
+      android:layout_alignParentEnd="true"
+      android:layout_marginTop="80dp"/>
+
+  <!-- Car Icon -->
+  <ImageView
+      android:id="@+id/car_icon"
+      android:layout_width="220dp"
+      android:layout_height="80dp"
+      android:src="@drawable/boomboom"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="50dp"
+      android:layout_below="@+id/status_icon"/>
+
+  <!-- Location and Destination -->
+  <LinearLayout
+      android:id="@+id/location_info"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/car_icon"
+      android:orientation="vertical"
+      android:layout_marginTop="40dp">
+
+    <!-- Location -->
+    <TextView
+        android:id="@+id/location_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location:"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="4dp"/>
+
+    <EditText
+        android:id="@+id/location_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="NONE"
+        android:background="@drawable/bookinglocation"
+        android:padding="10dp"
+        android:drawableStart="@drawable/from_location"
+        android:textColor="@android:color/black"/>
+
+    <!-- Destination -->
+    <TextView
+        android:id="@+id/destination_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Destination:"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="4dp"/>
+
+    <EditText
+        android:id="@+id/destination_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="NONE"
+        android:background="@drawable/bookinglocation"
+        android:padding="10dp"
+        android:drawableStart="@drawable/to_location"
+        android:textColor="@android:color/black"/>
+  </LinearLayout>
+
+  <!-- Details (Distance, Time, Price) -->
+  <LinearLayout
+      android:id="@+id/trip_details"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/location_info"
+      android:orientation="horizontal"
+      android:layout_marginTop="30dp"
+      android:weightSum="2">
+
+    <!-- Distance -->
+
+
+
+    <!-- Price -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+      <ImageView
+          android:layout_width="24dp"
+          android:layout_height="24dp"
+          android:src="@drawable/php"/>
+      <TextView
+          android:layout_width="100dp"
+          android:layout_height="40dp"
+          android:gravity="center"
+          android:text="Loading..."
+          android:textColor="@android:color/black"
+          android:id="@+id/paymentinfo"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center">
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="Generate Payment"
+          android:textSize="16sp"
+          android:textStyle="bold"
+          android:textColor="@android:color/black"/>
+      <Button
+          android:layout_width="100dp"
+          android:layout_height="40dp"
+          android:text="Pay"
+          android:textAllCaps="false"
+          android:textColor="@android:color/black"
+          android:background="@drawable/button_green"
+          android:id="@+id/paybtn189"/>
+    </LinearLayout>
+  </LinearLayout>
+
+  <!-- Rate Now Button -->
+  <Button
+      android:id="@+id/rate_now_button"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Rate Now"
+      android:backgroundTint="@color/blue"
+      android:textColor="@android:color/white"
+      android:layout_below="@id/footer_text"
+      android:layout_marginTop="20dp"/>
+
+
+  <TextView
+      android:id="@+id/footer_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Did you reach your destination? Please rate your driver"
+      android:textColor="@android:color/black"
+      android:layout_below="@id/trip_details"
+      android:layout_marginTop="30dp"
+      android:layout_centerHorizontal="true"/>
+</RelativeLayout>
