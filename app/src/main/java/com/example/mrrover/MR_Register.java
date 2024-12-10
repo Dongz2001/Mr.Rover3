@@ -123,32 +123,15 @@ public class MR_Register extends AppCompatActivity {
                     cPassword.setError("Passwords do not match");
                 }
 
-                firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(MR_Register.this, "Successfully Created", Toast.LENGTH_SHORT).show();
-                            userID = firebaseAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = firestore.collection("users").document(userID);
-                            Map<String,Object> user = new HashMap<>();
-                            user.put("Firstname",firstname);
-                            user.put("Lastname",lastname);
-                            user.put("Email",email);
-                            user.put("Password",password);
-                            user.put("Phone",phone);
-                            user.put("Birthdate",birthdate);
-                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    Log.d("TAG","onSuccess: user profile is created for " + userID);
-                                }
-                            });
-                            startActivity(new Intent(getApplicationContext(), MR_Login.class));
-                        }else{
-                            Toast.makeText(MR_Register.this, "Registration Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+               Intent intent = new Intent(MR_Register.this, OTPActivity.class);
+                intent.putExtra("phone", phone);
+                intent.putExtra("firstname", firstname);
+                intent.putExtra("lastname", lastname);
+                intent.putExtra("email", email);
+                intent.putExtra("birthdate", birthdate);
+                intent.putExtra("password", password);
+                startActivity(intent);
+
             }
         });
     }
