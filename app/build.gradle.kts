@@ -63,9 +63,10 @@ dependencies {
     implementation ("com.google.firebase:firebase-firestore")
     implementation ("com.google.firebase:firebase-auth")
     implementation(libs.firebase.messaging)
-    implementation ("com.github.jd-alexander:library:1.1.0'")
+    implementation ("com.github.jd-alexander:library:1.1.0")
     implementation ("com.google.android.material:material:1.1.0")
     implementation ("androidx.work:work-runtime:2.9.1")
+    implementation("com.google.guava:guava:30.1-android")
     //api("com.google.android.libraries.navigation:navigation:${navSdkVersion}")
 
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
@@ -74,4 +75,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    //Add those line in dependencies
+    implementation(files("libs/activation.jar"))
+    implementation(files("libs/additionnal.jar"))
+    implementation(files("libs/mail.jar"))
+
 }
