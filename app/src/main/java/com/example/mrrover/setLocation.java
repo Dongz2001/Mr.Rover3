@@ -28,8 +28,16 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class setLocation extends FragmentActivity implements OnMapReadyCallback {
 
@@ -38,7 +46,7 @@ public class setLocation extends FragmentActivity implements OnMapReadyCallback 
     EditText toLocation;
     Button done;
     Button search;
-
+    private static final String OPENROUTESERVICE_API_KEY = "5b3ce3597851110001cf62489324b9df69104cfcadfb7290175abbdd";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,56 +100,73 @@ public class setLocation extends FragmentActivity implements OnMapReadyCallback 
     }
 
     private void showRoute(String from, String to) {
-        // Clear the map to refresh and remove existing markers and polylines
-        mMap.clear();
-
         Geocoder geocoder = new Geocoder(this);
-        LatLngBounds cebuBounds = new LatLngBounds(
-                new LatLng(9.2144, 123.5897), // Southwest bounds
-                new LatLng(11.229, 125.2906)  // Northeast bounds
-        );
-
         try {
-            // Geocode from location within Cebu bounds
-            List<Address> fromAddresses = geocoder.getFromLocationName(from, 1,
-                    cebuBounds.southwest.latitude, cebuBounds.southwest.longitude,
-                    cebuBounds.northeast.latitude, cebuBounds.northeast.longitude);
-            // Geocode to location within Cebu bounds
-            List<Address> toAddresses = geocoder.getFromLocationName(to, 1,
-                    cebuBounds.southwest.latitude, cebuBounds.southwest.longitude,
-                    cebuBounds.northeast.latitude, cebuBounds.northeast.longitude);
+            List<Address> fromAddresses = geocoder.getFromLocationName(from, 1);
+            List<Address> toAddresses = geocoder.getFromLocationName(to, 1);
 
             if (!fromAddresses.isEmpty() && !toAddresses.isEmpty()) {
                 LatLng fromLatLng = new LatLng(fromAddresses.get(0).getLatitude(), fromAddresses.get(0).getLongitude());
                 LatLng toLatLng = new LatLng(toAddresses.get(0).getLatitude(), toAddresses.get(0).getLongitude());
 
-                mMap.addMarker(new MarkerOptions()
-                        .position(fromLatLng)
-                        .title("From: " + from)
-                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+                // Add markers for start and end points
+                mMap.addMarker(new MarkerOptions().position(fromLatLng).title("Start: " + from));
+                mMap.addMarker(new MarkerOptions().position(toLatLng).title("End: " + to));
 
-                mMap.addMarker(new MarkerOptions()
-                        .position(toLatLng)
-                        .title("To: " + to)
-                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+                // Move the camera to the start location
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(fromLatLng, 10));
 
-                // Move and zoom the camera to show both markers
-                LatLngBounds.Builder builder = new LatLngBounds.Builder();
-                builder.include(fromLatLng);
-                builder.include(toLatLng);
-                LatLngBounds bounds = builder.build();
-                int padding = 100; // offset from edges of the map in pixels
-                CameraUpdate cu = CameraUpdateFactory.newLatLngBounds(bounds, padding);
-                mMap.moveCamera(cu);
-
-                // Draw a line between the two points
-                mMap.addPolyline(new PolylineOptions().add(fromLatLng, toLatLng).width(10).color(Color.RED));
-
+                // Fetch and draw the route
+                fetchRoute(fromLatLng, toLatLng);
             } else {
-                Toast.makeText(this, "Unable to geocode locations within Cebu", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Invalid locations", Toast.LENGTH_SHORT).show();
             }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void fetchRoute(LatLng from, LatLng to) {
+        new Thread(() -> {
+            try {
+                String url = String.format("https://api.openrouteservice.org/v2/directions/driving-car?api_key=%s&start=%f,%f&end=%f,%f",
+                        OPENROUTESERVICE_API_KEY, from.longitude, from.latitude, to.longitude, to.latitude);
+
+                OkHttpClient client = new OkHttpClient();
+                Request request = new Request.Builder().url(url).build();
+
+                Response response = client.newCall(request).execute();
+                if (response.isSuccessful() && response.body() != null) {
+                    String responseBody = response.body().string();
+                    JSONObject jsonResponse = new JSONObject(responseBody);
+                    JSONArray coordinates = jsonResponse.getJSONArray("features")
+                            .getJSONObject(0)
+                            .getJSONObject("geometry")
+                            .getJSONArray("coordinates");
+
+                    List<LatLng> routePoints = new ArrayList<>();
+                    for (int i = 0; i < coordinates.length(); i++) {
+                        JSONArray point = coordinates.getJSONArray(i);
+                        routePoints.add(new LatLng(point.getDouble(1), point.getDouble(0)));
+                    }
+
+                    runOnUiThread(() -> drawRouteOnMap(routePoints));
+                } else {
+                    runOnUiThread(() -> Toast.makeText(setLocation.this, "Failed to fetch route", Toast.LENGTH_SHORT).show());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                runOnUiThread(() -> Toast.makeText(setLocation.this, "API call failed", Toast.LENGTH_SHORT).show());
+            }
+        }).start();
+    }
+
+    private void drawRouteOnMap(List<LatLng> routePoints) {
+        if (!routePoints.isEmpty()) {
+            mMap.addPolyline(new PolylineOptions()
+                    .addAll(routePoints)
+                    .width(10)
+                    .color(getResources().getColor(R.color.blue)));
         }
     }
 }

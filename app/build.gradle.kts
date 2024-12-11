@@ -67,6 +67,7 @@ dependencies {
     implementation ("com.google.android.material:material:1.1.0")
     implementation ("androidx.work:work-runtime:2.9.1")
     implementation("com.google.guava:guava:30.1-android")
+
     //api("com.google.android.libraries.navigation:navigation:${navSdkVersion}")
 
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
