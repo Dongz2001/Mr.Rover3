@@ -43,5 +43,8 @@ public class UserBookingModel {
     public String getBookingId(){
         return  bookingId;
     }
+    public String getUserUid(){
+        return  userUid;
+    }
 
 }

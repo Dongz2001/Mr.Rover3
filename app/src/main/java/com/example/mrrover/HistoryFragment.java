@@ -45,8 +45,11 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class HistoryFragment extends Fragment {
@@ -137,6 +140,30 @@ public class HistoryFragment extends Fragment {
 
         UserBookingModel booking = bookingList.get(position);
         String bookingId = booking.getBookingId(); // Assuming this is the document ID
+
+        // Create a map with cancellation details to add to the "notification" collection
+        LocalTime time = LocalTime.now();
+        Map<String, Object> cancellationNotification = new HashMap<>();
+        cancellationNotification.put("BookingId", bookingId);
+        cancellationNotification.put("DriverName", booking.getDriverName());
+        cancellationNotification.put("userUid", booking.getUserUid());
+        cancellationNotification.put("Service", booking.getService());
+        cancellationNotification.put("Date", booking.getDdate());
+        cancellationNotification.put("Time", booking.getTtime());
+        cancellationNotification.put("Time of cancellation", time.toString());
+        cancellationNotification.put("Status", "Cancelled");
+        cancellationNotification.put("description", "Booking has been cancelled the driver");
+        cancellationNotification.put("isNotificationSeen", false);
+
+        // Add the cancellation details to the "notification" collection in Firestore
+        database.collection("notification").document()
+                .set(cancellationNotification)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(requireContext(), "Booking cancelled and notification stored", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(requireContext(), "Error storing cancellation notification", Toast.LENGTH_SHORT).show();
+                });
 
         // Remove booking from Firestore
         database.collection("bookings").document(bookingId)

@@ -27,6 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -142,17 +143,34 @@ public class HistoryDriverFragment extends Fragment {
         DriverHistoryModel booking = bookingList.get(position);
         String bookingId = booking.getBookingId();
 
-        /*String userUID = booking.getVehicleowner();
 
-        NotificationRepository repository = new NotificationRepository();
-        repository.NotifyRejectedBooking(userUID, new NotificationRepository.NotificationPushedCallback() {
-            @Override
-            public void onNotificationDone() {
+        // TODO : Added userid to the booking model
+        // Create a map with cancellation details to add to the "notification" collection
+        LocalTime time = LocalTime.now();
+        Map<String, Object> cancellationNotification = new HashMap<>();
+        cancellationNotification.put("BookingId", bookingId);
+        cancellationNotification.put("DriverName", booking.getDriverName());
+        cancellationNotification.put("VehicleOwner", booking.getVehicleowner()); // this will be the basis of the notification
+        cancellationNotification.put("Service", booking.getService());
+        cancellationNotification.put("Date", booking.getDdate());
+        cancellationNotification.put("Time", booking.getTtime());
+        cancellationNotification.put("Time of cancellation", time.toString());
+        cancellationNotification.put("Status", "Cancelled");
+        cancellationNotification.put("description", "Booking has been cancelled the driver");
+        cancellationNotification.put("isNotificationSeen", false);
 
-            }
-        });// Assuming this is the document ID
+        // Add the cancellation details to the "notification" collection in Firestore
+        database.collection("notification").document()
+                .set(cancellationNotification)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(requireContext(), "Booking cancelled and notification stored", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(requireContext(), "Error storing cancellation notification", Toast.LENGTH_SHORT).show();
+                });
 
-        // Remove booking from Firestore
+
+
         database.collection("bookings").document(bookingId)
                 .delete()
                 .addOnSuccessListener(aVoid -> {
@@ -165,7 +183,9 @@ public class HistoryDriverFragment extends Fragment {
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(requireContext(), "Error deleting booking", Toast.LENGTH_SHORT).show();
-                });*/
+                });
+
+
     }
 
     private void acceptBooking(int position) {
