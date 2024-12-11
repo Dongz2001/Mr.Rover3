@@ -34,7 +34,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
-import androidx.work.PeriodicWorkRequest;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -97,13 +96,6 @@ public class HomeFragment extends Fragment {
     private final static int REQUEST_CODE=100;
 
 
-    /*private static final String CHANNEL_ID = "channel_id";
-    private static final int NOTIFICATION_ID = 1;
-    private NotificationManager notificationManager;
-
-    private ActivityResultLauncher<String> requestNotificationPermissionLauncher;*/
-
-
     public HomeFragment() {
 
 
@@ -113,19 +105,6 @@ public class HomeFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-       /* requestNotificationPermissionLauncher = registerForActivityResult(
-                new ActivityResultContracts.RequestPermission(),
-                isGranted -> {
-                    if (isGranted) {
-
-                        showNotification(null);
-                    } else {
-
-                        Toast.makeText(requireContext(), "Notification permission denied.", Toast.LENGTH_SHORT).show();
-                    }
-                }
-        );*/
     }
 
     @Override
@@ -136,10 +115,16 @@ public class HomeFragment extends Fragment {
 
 
 
-        /*Button notificationButton = view.findViewById(R.id.notificationButton);
-        notificationButton.setOnClickListener(this::checkAndShowNotification);
+        Button map = view.findViewById(R.id.notificationButton);
 
-        createNotificationChannel();*/
+        map.setOnClickListener(v -> {
+            Intent intent = new Intent(requireContext(), setLocation.class);
+            startActivity(intent);
+        });
+
+        //notificationButton.setOnClickListener(this::checkAndShowNotification);
+
+        //createNotificationChannel();
 
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext());
@@ -147,7 +132,6 @@ public class HomeFragment extends Fragment {
         getLastLocation();
 
         /*getLocation.setOnClickListener(v -> {
-
             getLastLocation();
             //latitude.setText("Latitude: " +addresses.get(0).getLatitude());
             //longitude.setText("Longitude: " +addresses.get(0).getLongitude());

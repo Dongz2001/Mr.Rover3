@@ -15,12 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.work.Constraints;
-import androidx.work.Data;
-import androidx.work.ExistingPeriodicWorkPolicy;
-import androidx.work.NetworkType;
-import androidx.work.PeriodicWorkRequest;
-import androidx.work.WorkManager;
 
 import com.example.mrrover.model.UserModel;
 import com.example.mrrover.utils.FirebaseUtil;
@@ -51,9 +45,9 @@ public class MR_Login extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_mr_login);
 
-        Constraints constraints = new Constraints.Builder()
+        /*Constraints constraints = new Constraints.Builder()
                 .setRequiredNetworkType(NetworkType.CONNECTED)
-                .build();
+                .build();*/
 
         emaillog = findViewById(R.id.editTextUsername);
         passwordlog = findViewById(R.id.editTextPassword);
@@ -114,7 +108,7 @@ public class MR_Login extends AppCompatActivity {
 
                                                             String currentUserUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-                                                            PeriodicWorkRequest notifWorkRequest = new PeriodicWorkRequest.Builder(
+                                                            /*PeriodicWorkRequest notifWorkRequest = new PeriodicWorkRequest.Builder(
                                                                     com.example.mrrover.NotificationBackgroundWorker.class, 15, TimeUnit.MINUTES)
                                                                     .setInputData(new Data.Builder()
                                                                             .putString(com.example.mrrover.NotificationConstants.RECEIVER_ID, currentUserUID)
@@ -124,7 +118,7 @@ public class MR_Login extends AppCompatActivity {
                                                                     .build();
                                                             WorkManager.getInstance(bubble)
                                                                     .enqueueUniquePeriodicWork(com.example.mrrover.NotificationConstants.NOTIFICATION_TAG,
-                                                                            ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE, notifWorkRequest);
+                                                                            ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE, notifWorkRequest);*/
 
 
                                                             startActivity(new Intent(getApplicationContext(), HomeActivity.class));

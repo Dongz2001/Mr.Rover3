@@ -66,14 +66,14 @@ public class setLocation extends FragmentActivity implements OnMapReadyCallback 
             @Override
             public void onClick(View v) {
 
-                String fromLocationText = fromLocation.getText().toString();
+                /*String fromLocationText = fromLocation.getText().toString();
                 String ToLocationText = toLocation.getText().toString();
 
                 Intent intent = new Intent(setLocation.this , Booking.class);
                 intent.putExtra("From", fromLocationText);
                 intent.putExtra("To", ToLocationText);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
+                startActivity(intent);*/
 
             }
         });
@@ -135,7 +135,7 @@ public class setLocation extends FragmentActivity implements OnMapReadyCallback 
                 mMap.moveCamera(cu);
 
                 // Draw a line between the two points
-                //mMap.addPolyline(new PolylineOptions().add(fromLatLng, toLatLng).width(10).color(Color.RED));
+                mMap.addPolyline(new PolylineOptions().add(fromLatLng, toLatLng).width(10).color(Color.RED));
 
             } else {
                 Toast.makeText(this, "Unable to geocode locations within Cebu", Toast.LENGTH_SHORT).show();

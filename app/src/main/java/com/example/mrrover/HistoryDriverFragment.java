@@ -142,7 +142,7 @@ public class HistoryDriverFragment extends Fragment {
         DriverHistoryModel booking = bookingList.get(position);
         String bookingId = booking.getBookingId();
 
-        String userUID = booking.getVehicleowner();
+        /*String userUID = booking.getVehicleowner();
 
         NotificationRepository repository = new NotificationRepository();
         repository.NotifyRejectedBooking(userUID, new NotificationRepository.NotificationPushedCallback() {
@@ -165,7 +165,7 @@ public class HistoryDriverFragment extends Fragment {
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(requireContext(), "Error deleting booking", Toast.LENGTH_SHORT).show();
-                });
+                });*/
     }
 
     private void acceptBooking(int position) {

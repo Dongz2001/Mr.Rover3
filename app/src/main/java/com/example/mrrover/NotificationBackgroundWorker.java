@@ -13,8 +13,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
-import androidx.work.Worker;
-import androidx.work.WorkerParameters;
 
 import com.example.mrrover.model.DateTimeDto;
 import com.google.firebase.Timestamp;
@@ -22,8 +20,8 @@ import com.google.firebase.Timestamp;
 import java.util.List;
 
 
-public class NotificationBackgroundWorker extends Worker {
-    NotificationRepository getnotify = new NotificationRepository();
+public class NotificationBackgroundWorker /*extends Worker*/ {
+    /*NotificationRepository getnotify = new NotificationRepository();
     private SharedPreferences sharedPref;
     Context context;
     public NotificationBackgroundWorker(
@@ -112,6 +110,6 @@ public class NotificationBackgroundWorker extends Worker {
         builder.setChannelId(NotificationConstants.NOTIFICATION_CHANNEL_ID);
         builder.setGroup(NotificationConstants.NOTIFICATION_GROUP);
         return builder.build();
-    }
+    }*/
 
 }

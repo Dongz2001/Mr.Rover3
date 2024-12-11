@@ -59,6 +59,7 @@ public class HomeDriver extends Fragment {
 
     Dialog dialog;
     Button confirm;
+    Button map8;
 
     FirebaseFirestore database = FirebaseFirestore.getInstance();
 
@@ -90,6 +91,13 @@ public class HomeDriver extends Fragment {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext());
 
         getLastLocation();
+
+        map8 = view.findViewById(R.id.mapnav);
+
+        map8.setOnClickListener(v -> {
+            Intent intent = new Intent(requireContext(), setLocation.class);
+            startActivity(intent);
+        });
 
 
         dialog = new Dialog(requireContext());

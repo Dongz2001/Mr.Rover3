@@ -12,6 +12,13 @@
     tools:context=".HomeDriver">
 
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="map"
+        android:id="@+id/mapnav"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

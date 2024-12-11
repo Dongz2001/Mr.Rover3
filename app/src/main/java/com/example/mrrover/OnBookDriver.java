@@ -168,7 +168,7 @@ public class OnBookDriver extends AppCompatActivity implements OnMapReadyCallbac
         });
 
         end.setOnClickListener(v -> {
-            FirebaseFirestore database = FirebaseFirestore.getInstance();
+            /*FirebaseFirestore database = FirebaseFirestore.getInstance();
             String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
             String bookingId = getIntent().getStringExtra("bookingId");
 
@@ -202,7 +202,7 @@ public class OnBookDriver extends AppCompatActivity implements OnMapReadyCallbac
                                 Log.e("Firestore", "Error executing query", e));
             } else {
                 Log.e("Firestore", "Invalid or missing bookingId");
-            }
+            }*/
         });
 
 
