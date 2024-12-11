@@ -122,15 +122,16 @@ public class MR_Register extends AppCompatActivity {
                 } else if (!password.equals(confirmpassword)) {
                     cPassword.setError("Passwords do not match");
                 }
-
-               Intent intent = new Intent(MR_Register.this, OTPActivity.class);
-                intent.putExtra("phone", phone);
-                intent.putExtra("firstname", firstname);
-                intent.putExtra("lastname", lastname);
-                intent.putExtra("email", email);
-                intent.putExtra("birthdate", birthdate);
-                intent.putExtra("password", password);
-                startActivity(intent);
+                else{
+                    Intent intent = new Intent(MR_Register.this, OTPActivity.class);
+                    intent.putExtra("phone", phone);
+                    intent.putExtra("firstname", firstname);
+                    intent.putExtra("lastname", lastname);
+                    intent.putExtra("email", email);
+                    intent.putExtra("birthdate", birthdate);
+                    intent.putExtra("password", password);
+                    startActivity(intent);
+                }
 
             }
         });

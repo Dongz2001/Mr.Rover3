@@ -1,5 +1,6 @@
 package com.example.mrrover;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -17,6 +18,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.mrrover.email.JavaMailAPI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -65,6 +67,10 @@ public class OTPActivity extends AppCompatActivity {
         birthDate = intent.getStringExtra("birthdate");
         System.out.println(email + " " + password + " " + firstName + " " + lastName + " " + phoneNumber + " " + birthDate);
 
+        firebaseAuth = FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
+
+        generateOtp();
         verficationCode = findViewById(R.id.verfication);
         timer = findViewById(R.id.textView3);
         timer.setText("");
@@ -82,16 +88,25 @@ public class OTPActivity extends AppCompatActivity {
 
         Button Resend = findViewById(R.id.registerBTN2);
         Resend.setOnClickListener(v -> {
-            if (time > 0) {
+            if (time == 0) {
                 generateOtp();
+            }
+            else{
+                Toast.makeText(OTPActivity.this, "Time out", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void generateOtp() {
+
         Random random = new Random();
         code = random.nextInt(900000) + 100000; // Generate a 6-digit OTP
         startTimer(60000); // Start a 60-second timer
+
+        JavaMailAPI mailAPI = new JavaMailAPI(OTPActivity.this, email, "Rover Email Verification", "The verification code is:" + code, String.valueOf(code));
+        Toast.makeText(this, " Email Sended", Toast.LENGTH_SHORT).show();
+        mailAPI.execute();
+
     }
 
     private void startTimer(long duration) {
@@ -109,6 +124,12 @@ public class OTPActivity extends AppCompatActivity {
         }.start();
     }
     private void InserrtUser(){
+
+        ProgressDialog progressDialog = new ProgressDialog(OTPActivity.this);
+        progressDialog.setTitle("Creating Account");
+        progressDialog.setMessage("Please wait while we are creating your account");
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
         try{
             firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -133,11 +154,15 @@ public class OTPActivity extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), MR_Login.class));
                     }else{
                         Toast.makeText(OTPActivity.this, "Registration Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
                     }
                 }
             });
         } catch (Exception e){
             e.printStackTrace();
+        }
+        finally {
+            progressDialog.dismiss();
         }
     }
 }
