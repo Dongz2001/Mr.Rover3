@@ -27,6 +27,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import org.json.JSONArray;
@@ -48,6 +49,8 @@ public class setLocation extends FragmentActivity implements OnMapReadyCallback 
     Button done;
     Button search;
     private static final String OPENROUTESERVICE_API_KEY = "5b3ce3597851110001cf62489324b9df69104cfcadfb7290175abbdd";
+    private Polyline currentPolyline;
+    private List<Marker> markers = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,9 +105,15 @@ public class setLocation extends FragmentActivity implements OnMapReadyCallback 
                 LatLng fromLatLng = new LatLng(fromAddresses.get(0).getLatitude(), fromAddresses.get(0).getLongitude());
                 LatLng toLatLng = new LatLng(toAddresses.get(0).getLatitude(), toAddresses.get(0).getLongitude());
 
+                // Remove existing markers
+                for (Marker marker : markers) {
+                    marker.remove();
+                }
+                markers.clear();
+
                 // Add markers for start and end points
-                mMap.addMarker(new MarkerOptions().position(fromLatLng).title("Start: " + from));
-                mMap.addMarker(new MarkerOptions().position(toLatLng).title("End: " + to));
+                markers.add(mMap.addMarker(new MarkerOptions().position(fromLatLng).title("Start: " + from)));
+                markers.add(mMap.addMarker(new MarkerOptions().position(toLatLng).title("End: " + to)));
 
                 // Move the camera to the start location
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(fromLatLng, 10));
@@ -176,28 +185,27 @@ public class setLocation extends FragmentActivity implements OnMapReadyCallback 
 
     private void drawRouteOnMap(List<LatLng> routePoints, long durationInMinutes) {
         if (!routePoints.isEmpty()) {
-            // Draw the first route in blue
-            mMap.addPolyline(new PolylineOptions()
+            // Remove existing polyline and markers if they exist
+            if (currentPolyline != null) {
+                currentPolyline.remove();
+            }
+
+            // Draw the new route
+            currentPolyline = mMap.addPolyline(new PolylineOptions()
                     .addAll(routePoints)
                     .width(10)
                     .color(getResources().getColor(R.color.blue)));
-
-            // Draw the second route in red
-            mMap.addPolyline(new PolylineOptions()
-                    .addAll(routePoints)
-                    .width(10)
-                    .color(Color.RED));
 
             // Calculate the midpoint of the route
             int midpointIndex = routePoints.size() / 2;
             LatLng midpoint = routePoints.get(midpointIndex);
 
             // Add a custom marker at the midpoint with the estimated travel time
-            addCustomMarker(mMap, midpoint, durationInMinutes + " minutes", "");
+            markers.add(addCustomMarker(mMap, midpoint, durationInMinutes + " minutes", ""));
         }
     }
 
-    public void addCustomMarker(GoogleMap mMap, LatLng position, String time, String distance) {
+    public Marker addCustomMarker(GoogleMap mMap, LatLng position, String time, String distance) {
         // Create a custom view for the marker
         View markerView = LayoutInflater.from(this).inflate(R.layout.custom_marker, null);
         TextView timeTextView = markerView.findViewById(R.id.time_text_view);
@@ -209,7 +217,7 @@ public class setLocation extends FragmentActivity implements OnMapReadyCallback 
         BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory.fromBitmap(createDrawableFromView(markerView));
 
         // Add the marker to the map
-        Marker marker = mMap.addMarker(new MarkerOptions()
+        return mMap.addMarker(new MarkerOptions()
                 .position(position)
                 .icon(bitmapDescriptor)
                 .anchor(0.5f, 1.0f) // Adjust anchor point as needed
