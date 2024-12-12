@@ -1,7 +1,8 @@
-package com.example.mrrover;
+package com.example.mrrover.component;
 
 import android.util.Log;
 
+import com.example.mrrover.NotificationModel;
 import com.example.mrrover.model.DateTimeDto;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;

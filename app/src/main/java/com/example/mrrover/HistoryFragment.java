@@ -123,9 +123,11 @@ public class HistoryFragment extends Fragment {
                     String  date = document.getString("Date");
                     String  time = document.getString("Time");
                     String  status = document.getString("Status");
+                    String VehicleUserID = document.getString("Vehicle Owner's UID");
                     String bookingId = document.getId();
 
-                    UserBookingModel booking = new UserBookingModel(bookingId,userUid, driverName, service, vehicle, date, time, status);
+
+                    UserBookingModel booking = new UserBookingModel(bookingId,userUid, driverName, service, vehicle, date, time, status, VehicleUserID);
                     bookingList.add(booking);
                 }
                 userBookingAdapter.notifyDataSetChanged();

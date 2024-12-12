@@ -1,4 +1,4 @@
-package com.example.mrrover;
+package com.example.mrrover.component;
 import com.google.firebase.Timestamp;
 
 public class NotificationDTO {

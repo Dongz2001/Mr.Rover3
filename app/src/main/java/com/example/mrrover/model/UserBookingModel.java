@@ -10,8 +10,9 @@ public class UserBookingModel {
     private  String date;
     private  String time;
     private  String status;
+    private  String vehicleUserID;
 
-    public UserBookingModel(String bookngId, String userUid, String driverName, String service, String vehicle, String date, String time, String status) {
+    public UserBookingModel(String bookngId, String userUid, String driverName, String service, String vehicle, String date, String time, String status, String vehicleUserID) {
         this.userUid = userUid;
         this.driverName = driverName;
         this.service = service;
@@ -20,6 +21,7 @@ public class UserBookingModel {
         this.time = time;
         this.status = status;
         this.bookingId = bookngId;
+        this.vehicleUserID = vehicleUserID;
     }
 
     public String getDriverName(){
@@ -45,6 +47,9 @@ public class UserBookingModel {
     }
     public String getUserUid(){
         return  userUid;
+    }
+    public String getVehicleUserID(){
+        return  vehicleUserID;
     }
 
 }

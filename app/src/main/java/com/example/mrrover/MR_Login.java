@@ -109,15 +109,15 @@ public class MR_Login extends AppCompatActivity {
                                                             String currentUserUID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
                                                             /*PeriodicWorkRequest notifWorkRequest = new PeriodicWorkRequest.Builder(
-                                                                    com.example.mrrover.NotificationBackgroundWorker.class, 15, TimeUnit.MINUTES)
+                                                                    com.example.mrrover.component.NotificationBackgroundWorker.class, 15, TimeUnit.MINUTES)
                                                                     .setInputData(new Data.Builder()
-                                                                            .putString(com.example.mrrover.NotificationConstants.RECEIVER_ID, currentUserUID)
+                                                                            .putString(com.example.mrrover.component.NotificationConstants.RECEIVER_ID, currentUserUID)
                                                                             .build())
-                                                                    .addTag(com.example.mrrover.NotificationConstants.NOTIFICATION_WORKER_TAG)
+                                                                    .addTag(com.example.mrrover.component.NotificationConstants.NOTIFICATION_WORKER_TAG)
                                                                     .setConstraints(constraints)
                                                                     .build();
                                                             WorkManager.getInstance(bubble)
-                                                                    .enqueueUniquePeriodicWork(com.example.mrrover.NotificationConstants.NOTIFICATION_TAG,
+                                                                    .enqueueUniquePeriodicWork(com.example.mrrover.component.NotificationConstants.NOTIFICATION_TAG,
                                                                             ExistingPeriodicWorkPolicy.CANCEL_AND_REENQUEUE, notifWorkRequest);*/
 
 

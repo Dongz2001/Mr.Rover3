@@ -1,4 +1,4 @@
-package com.example.mrrover;
+package com.example.mrrover.component;
 
 public class NotificationConstants {
     public static final String NOTIFICATION_CHANNEL_ID = "10001" ;
